@@ -1,0 +1,18 @@
+[package]
+name = "vast4"
+version = "0.1.0"
+edition = "2021"
+authors = ["mechiru <u9053u6d41@gmail.com>"]
+license = "MIT OR Apache-2.0"
+description = "An implementation of VAST 4.2 FINAL."
+repository = "https://github.com/mechiru/vast4"
+documentation = "https://docs.rs/vast4"
+categories = ["api-bindings"]
+keywords = ["iab", "openrtb", "vast"]
+readme = "README.md"
+
+[dependencies]
+hard-xml = "1.21"
+
+[dev-dependencies]
+pretty_assertions = "1.3"

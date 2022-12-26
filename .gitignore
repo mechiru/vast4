@@ -1,0 +1,8 @@
+/target
+/Cargo.lock
+/tests/output
+
+# for checker
+tests/checker/**/.idea
+tests/checker/**/obj
+tests/checker/**/bin
