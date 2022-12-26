@@ -1,0 +1,28 @@
+name: ci
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        toolchain: [stable, nightly]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions-rs/toolchain@v2
+        with:
+          toolchain: ${{ matrix.toolchain }}
+          override: true
+          components: clippy
+      - run: cargo build --verbose
+      - run: cargo test --verbose
+      - run: cargo clippy --all-targets --all-features -- --deny warnings
